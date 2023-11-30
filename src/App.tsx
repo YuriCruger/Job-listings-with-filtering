@@ -6,7 +6,7 @@ import Header from './components/Header';
 function App() {
   const [data, setData] = useState<Users[] | undefined>(undefined)
   useEffect(() => {
-    fetch('../data.json')
+    fetch('https://api.npoint.io/2e187569b683df1e0941')
       .then(response => {
         if (!response.ok) {
           throw new Error('Error retrieving data.');
