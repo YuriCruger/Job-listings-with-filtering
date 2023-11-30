@@ -30,7 +30,7 @@ export default function CardItem({ user, setArray, array }: UserProps) {
         return array.every(value => selectedOptions.includes(value));
     };
     if (!shouldShowCard()) {
-        return null;
+        return;
     }
 
     return (
@@ -42,27 +42,27 @@ export default function CardItem({ user, setArray, array }: UserProps) {
 
                 <div className='flex flex-col gap-2'>
 
-                <div className='flex items-center'>
-                    <span className='mr-4 text-desaturated_dark_cyan font-bold'>
-                        {user.company}
-                    </span>
-                    <div className='mr-2 bg-desaturated_dark_cyan text-white font-bold rounded-xl px-2'>
-                        {user.new && 'NEW!'}
+                    <div className='flex items-center'>
+                        <span className='mr-4 text-desaturated_dark_cyan font-bold'>
+                            {user.company}
+                        </span>
+                        <div className='mr-2 bg-desaturated_dark_cyan text-white font-bold rounded-xl px-2'>
+                            {user.new && 'NEW!'}
+                        </div>
+                        <div className='bg-very_dark_grayish_cyan text-white font-bold px-2 rounded-xl'>
+                            {user.featured && 'FEATURED'}
+                        </div>
                     </div>
-                    <div className='bg-very_dark_grayish_cyan text-white font-bold px-2 rounded-xl'>
-                        {user.featured && 'FEATURED'}
+
+                    <span className='font-bold'>{user.position}</span>
+
+                    <div className='flex items-center gap-2 text-dark_grayish_cyan'>
+                        <div>{user.postedAt}</div>
+                        <span>*</span>
+                        <div>{user.contract}</div>
+                        <span>*</span>
+                        <div>{user.location}</div>
                     </div>
-                </div>
-
-                <span className='font-bold'>{user.position}</span>
-
-                <div className='flex items-center gap-2 text-dark_grayish_cyan'>
-                    <div>{user.postedAt}</div>
-                    <span>*</span>
-                    <div>{user.contract}</div>
-                    <span>*</span>
-                    <div>{user.location}</div>
-                </div>
 
                 </div>
 
@@ -83,7 +83,7 @@ export default function CardItem({ user, setArray, array }: UserProps) {
                     >
                         {user.level}
                     </button>
-                    <div className=''>
+                    <div>
                         <Languages user={user} handleClick={handleClick} />
                     </div>
                     <div>
